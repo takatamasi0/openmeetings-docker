@@ -4,18 +4,18 @@ services:
   db:
     image: mariadb:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=kelompok07
+      - MYSQL_USER=kelompok07
+      - MYSQL_PASSWORD=kelompok07
+      - MYSQL_DATABASE=kelompok07
     volumes:
       - squash-tm-db:/var/lib/mysql/data
   main:
-    image: apache/openmeetings:${OM_TAG}
+    image: apache/openmeetings:7.1.0
     restart: always
     ports:
-      - 5443:5443
-      - 8888:8888
+      - 1443:5443
+      - 1888:8888
     environment:
       - OM_DB_HOST=db
 volumes:
